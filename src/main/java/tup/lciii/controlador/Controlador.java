@@ -39,14 +39,16 @@ public class Controlador {
      * realiza varias rondas del juego y determina un ganador cuando un jugador alcanza 100 puntos.
      */
     public void partida() {
-        Juego juego = new Juego();
-        juego.iniciarMazo();
+       Juego juego = new Juego();
+       juego.iniciarMazo();
+
+        //this.juego.iniciarMazo();
         Mazo mazo = juego.getMazo();
 
         Mesa mesa = juego.getMesa();
 
         ArrayList<String> nombresDeJugadores = vista.mostrarMensajeCantidadJugadores(juego.getCantidadJugadores());
-        juego.iniciarJugadores(nombresDeJugadores);
+        juego.iniciarJugadores(nombresDeJugadores,juego.getCantidadJugadores());
         ArrayList<Jugador> jugadores = juego.getJugadores();
         //reinicia el puntaje a 0 en cada partida
         for (Jugador jugador : jugadores) {

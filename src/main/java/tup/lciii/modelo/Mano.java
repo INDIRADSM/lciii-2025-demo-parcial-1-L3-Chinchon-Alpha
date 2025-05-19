@@ -116,7 +116,12 @@ public class Mano {
      * @return La carta encontrada, o null si la carta no está en la mano del jugador.
      */
     public Carta buscarCartaEnMano(int numero, Palo palo) {
-        //TODO
+        for (Carta carta : mano) {
+            if (carta.getNumero() == numero && carta.getPalo() == palo) {
+                return carta;
+            }
+        }
+        return null;
     }
 
     /**

@@ -2,7 +2,7 @@ package tup.lciii.modelo;
 
 import tup.lciii.modelo.enums.Estado;
 import tup.lciii.modelo.enums.Palo;
-
+import tup.lciii.modelo.Jugador;
 import java.util.ArrayList;
 
 public class Juego {
@@ -31,7 +31,7 @@ public class Juego {
     }
 
     public int getCantidadJugadores() {
-        //TODO
+        return jugadores.size();
     }
 
     public int getPuntajeMaximo() {
@@ -43,8 +43,14 @@ public class Juego {
      * Uno de los jugadores tiene que inicializarse con esTurno en true.
      * @param nombresDeJugadores Una lista de nombres de jugadores.
      */
-    public void iniciarJugadores(ArrayList<String> nombresDeJugadores) {
-        //TODO
+    public void iniciarJugadores(ArrayList<String> nombresDeJugadores, int indiceJugadorInicial) {
+        jugadores.clear();
+        for (int i = 0; i < nombresDeJugadores.size(); i++) {
+            boolean esTurno = (i == indiceJugadorInicial);
+            Jugador jugador = new Jugador(nombresDeJugadores.get(i), esTurno);
+            jugadores.add(jugador);
+        }
+
     }
 
     public void iniciarMazo() {
@@ -60,7 +66,13 @@ public class Juego {
      * @see Mazo#mezclarMazo()
      */
     public void mezclarMazoYrepartirCartas() {
-        //TODO
+        mazo.mezclarMazo();
+        for (int i = 0; i < 7; i++) {
+            for (Jugador jugador : jugadores) {
+                Carta carta = mazo.getProximaCarta();
+                jugador.getMano().agregarCarta(carta);
+            }
+        }
     }
 
     /**
