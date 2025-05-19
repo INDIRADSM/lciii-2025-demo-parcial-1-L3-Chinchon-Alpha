@@ -48,6 +48,13 @@ public class Controlador {
         Mesa mesa = juego.getMesa();
 
         ArrayList<String> nombresDeJugadores = vista.mostrarMensajeCantidadJugadores(juego.getCantidadJugadores());
+        //modificacion en el control
+        if (nombresDeJugadores.isEmpty()) {
+            System.out.println("El juego no puede comenzar sin jugadores.");
+            return;
+        }
+        //moficacion en el control
+
         juego.iniciarJugadores(nombresDeJugadores,juego.getCantidadJugadores());
         ArrayList<Jugador> jugadores = juego.getJugadores();
         //reinicia el puntaje a 0 en cada partida

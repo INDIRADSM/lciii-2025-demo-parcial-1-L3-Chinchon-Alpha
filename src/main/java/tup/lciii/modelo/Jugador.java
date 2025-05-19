@@ -11,7 +11,8 @@ public class Jugador {
 
     public Jugador(String nombre, boolean esTurno) {
         this.nombre = nombre;
-        this.esTurno = esTurno;
+        //this.esTurno = esTurno;
+        this.esTurno = true;
         this.mano = new Mano();
         this.puntos = 0;
         this.estado = Estado.JUGANDO;

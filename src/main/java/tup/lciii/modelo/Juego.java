@@ -29,9 +29,9 @@ public class Juego {
     public Mesa getMesa() {
         return mesa;
     }
-
+     // se modifico para que por lo menos me muestre un jugador diferente 0
     public int getCantidadJugadores() {
-        return jugadores.size();
+        return Math.max(1, jugadores.size());
     }
 
     public int getPuntajeMaximo() {
